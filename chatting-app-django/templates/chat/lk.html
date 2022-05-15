@@ -1,0 +1,8 @@
+{% extends 'chat/ddd.html' %}
+{% block body %}
+<div class="section" style="height: 80vh">
+
+    <p>{{ request.user.username }}</p>
+    <p>{{ request.user.id }}</p>
+</div>
+{%endblock%}

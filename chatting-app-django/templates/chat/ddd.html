@@ -1,0 +1,80 @@
+{% load static %}
+  <style>
+   ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 4px; /* Значение полей */
+   }
+   ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+   }
+   button {
+    background-color: #17212B;
+    border: none;
+   }
+  </style>
+
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+
+    <title>Регистрация</title>
+      <link rel="shortcut icon" href="/static/img/утка.png" type="image/png">
+
+    <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
+<link rel="stylesheet" href="/static/css/Регистрация.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/static/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/static/js/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 3.16.0, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Cambay:400,400i,700,700i">
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"url": "index.html",
+		"logo": "/static/img/S.png"
+}</script>
+    <meta property="og:title" content="О нас">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#5595e8">
+    <link rel="canonical" href="index.html">
+    <meta property="og:url" content="index.html">
+  </head>
+  <body class="u-body"><header class="u-clearfix u-custom-color-2 u-header u-header" id="sec-d9ff"><div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+          <img src="/static/img/утка.png" class="u-logo-image u-logo-image-1" width="80" style="padding-top: 20px">
+
+
+    <div class="nav-wrapper container" style="margin-left: 1000px;margin-down:40px;">
+        <ul class="hr">
+          <li><a href="{%url 'user'%}" style="color: #fffff;font-size: 40px;padding-right:40px;" >{{ request.user.username }}</a></li>
+          <li><a href="{% url 'logout' %}"><i class="material-icons">power_settings_new</i></a></li>
+      </ul>
+    </div>
+
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+      </div></header>
+
+<div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

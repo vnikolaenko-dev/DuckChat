@@ -1,0 +1,50 @@
+{% extends 'chat/chat.html' %}
+{% block hide %}{% endblock %}
+{% block messages %}
+    {% for message in messages %}
+
+    {% if message.1 == 1 %}
+<ul class="card-panel right" style="display: inline-block; width: 75%; position: relative">
+    <li style="position: absolute; top: 0; left:3px; font-weight: bolder" class="title" id="msg-receiver">You</li>
+    <li style="position: absolute; top: 0; left:3px; font-weight: bolder; padding-left: 470px;" class="title" id="msg-data">{{message.2}}</li>
+    {{ message.0 }}
+</ul>
+    {% else %}
+<ul class="card-panel left blue lighten-5" style="display: inline-block; width: 75%; position: relative">
+    <li style="position: absolute; top: 0; left:3px; font-weight: bolder" class="title" id="msg-sender">{{ receiver.username }}</li>
+        <li style="position: absolute; top: 0; left:3px; font-weight: bolder; padding-left: 470px;" class="title" id="msg-data-sender">{{message.2}}</li>
+    {{ message.0 }}
+</ul>
+
+    {% endif %}
+    {% endfor %}
+<script>
+$(function () {
+    $('#user{{ receiver.id }}').addClass('active');
+    //Call receive function each 1 seconds to check for new messages in the database
+    setInterval(receive,1000)
+})
+// Reload the page every 5 seconds
+
+//async function elementUpdate(selector) {
+  //try {
+   // var html = await (await fetch(location.href)).text();
+  //  var newdoc = new DOMParser().parseFromString(html, 'text/html');
+ //   document.querySelector(selector).outerHTML = newdoc.querySelector(selector).outerHTML;
+//    console.log('Элемент '+selector+' был успешно обновлен');
+//    scrolltoend();
+//    return true;
+//  } catch(err) {
+//    console.log('При обновлении элемента '+selector+' произошла ошибка:');
+//    console.dir(err);
+//    return false;
+//  }
+//}
+
+</script>
+<script>
+    //window.setInterval(function(){elementUpdate('#board')}, 5000);
+    //$('#board').load('ajax.html');
+
+</script>
+{% endblock %}
