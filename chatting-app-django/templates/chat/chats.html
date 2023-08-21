@@ -23,7 +23,7 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
 
-    <title>Регистрация</title>
+    <title>Чаты</title>
       <link rel="shortcut icon" href="/static/img/утка.png" type="image/png">
 
     <link rel="stylesheet" href="/static/css/nicepage.css" media="screen">
@@ -47,13 +47,12 @@
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
   </head>
-  <body class="u-body"><header class="u-clearfix u-custom-color-2 u-header u-header" id="sec-d9ff"><div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
-          <img src="/static/img/утка.png" class="u-logo-image u-logo-image-1" width="80" style="padding-top: 20px">
+  <body class="u-body"><header><div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
 
 
-    <div class="nav-wrapper container" style="margin-left: 1000px;margin-down:40px;">
+    <div class="nav-wrapper container" style="margin-left: 1000px;margin-down:10px;">
         <ul class="hr">
-          <li><a href="{%url 'user'%}" style="color: #fffff;font-size: 40px;padding-right:40px;" >{{ request.user.username }}</a></li>
+          <li><a style="color: #fffff;font-size: 40px;padding-right:40px;" >{{ request.user.username }}</a></li>
           <li><a href="{% url 'logout' %}"><i class="material-icons">power_settings_new</i></a></li>
       </ul>
     </div>

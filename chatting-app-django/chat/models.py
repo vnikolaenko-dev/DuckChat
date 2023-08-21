@@ -5,11 +5,26 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+class MyUser(models.Model):
+    # Столбцы
+    name = models.CharField('Имя', max_length=20)
+    password = models.CharField('Пароль', max_length=20)
+
+    # Вывод
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Юзер'
+        verbose_name_plural = 'Юзеры'
+
+
 class Profile(models.Model):
     user = models.IntegerField(blank=True)
     open_key = models.CharField(max_length=100, blank=True)
     secret_key = models.CharField(max_length=100, blank=True)
     aes_key = models.CharField(max_length=100, blank=True)
+
 
 class Message(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')

@@ -13,9 +13,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 import time
 from .models import Message, Profile
-from .forms import SignUpForm
+from .forms import *
 from .serializers import MessageSerializer, UserSerializer
 from . import RSA
+
 
 
 @csrf_exempt
@@ -28,6 +29,7 @@ def index(request):
         username, password = request.POST['username'], request.POST['password']
         user = authenticate(username=username, password=password)
         if user is not None:
+            print('login OK')
             login(request, user)
         else:
             return HttpResponse('{"error": "User does not exist"}')
@@ -130,7 +132,7 @@ def register_view(request):
                     return redirect('chats')
     else:
         form = SignUpForm()
-    template = 'chat/Регистрация.html'
+    template = 'chat/registrations.html'
     context = {'form': form}
     return render(request, template, context)
 
